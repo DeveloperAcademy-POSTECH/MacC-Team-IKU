@@ -50,9 +50,43 @@ final class HistoryViewController: UIViewController {
     
     // MARK: - Methods
     private func setupNavigationController() {
+        // Navigation Back Button
         let backItem = UIBarButtonItem()
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem
+        
+        // Navigation Title View
+        let label = UILabel()
+        label.text = "Test Record"
+        label.font = .nexonGothicFont(ofSize: 17, weight: .bold)
+        label.textColor = .black
+        label.textAlignment = .center
+        navigationItem.titleView = label
+        
+        // Right UIBarButtonItem
+        let barButtonlabel = UILabel()
+        barButtonlabel.text = "Lisa"
+        barButtonlabel.font = .nexonGothicFont(ofSize: 13, weight: .bold)
+        barButtonlabel.textColor = .black
+        barButtonlabel.textAlignment = .center
+        
+        let imageView = UIImageView(image: UIImage(named: "AppIcon"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
+        NSLayoutConstraint.activate([
+            imageView.widthAnchor.constraint(equalToConstant: 25),
+            imageView.heightAnchor.constraint(equalToConstant: 25),
+        ])
+        imageView.layer.cornerRadius = 25 / 2
+        imageView.clipsToBounds = true
+        
+        let itemStackView = UIStackView(arrangedSubviews: [barButtonlabel, imageView])
+        itemStackView.axis = .horizontal
+        itemStackView.spacing = 3
+        itemStackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(goToProfileView(_:))))
+        
+        let barButtonItem = UIBarButtonItem(customView: itemStackView)
+        navigationItem.rightBarButtonItem = barButtonItem
     }
     
     private func setupCalendarView() {
@@ -137,6 +171,10 @@ final class HistoryViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    @objc private func goToProfileView(_ sender: UIStackView) {
+        navigationController?.pushViewController(ProfileViewController(), animated: true)
     }
     
     // MARK: - Life Cycles

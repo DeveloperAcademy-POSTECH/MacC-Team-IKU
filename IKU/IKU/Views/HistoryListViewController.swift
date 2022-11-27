@@ -23,7 +23,7 @@ class HistoryListViewController: UIViewController {
         let backItem = UIBarButtonItem()
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem
-        title = "List"
+        title = "Test List"
         
         let barButtonItemImage = UIImage(systemName: "bookmark",
                                          withConfiguration: UIImage.SymbolConfiguration(pointSize: 17, weight: .medium, scale: .medium))
