@@ -154,6 +154,7 @@ final class PersistenceManagerTest: XCTestCase {
     }
     
     func test_clear_garbage_files() throws {
+        try persistenceManager.clearGarbageFilesInDocumentFolder()
         _ = try exampleFileURLWithCreatingFile()
         var expectedFiles: Set<String> = ["example.mp4", SQLiteService.path, JSONService.path, VideoURLService.path]
         
