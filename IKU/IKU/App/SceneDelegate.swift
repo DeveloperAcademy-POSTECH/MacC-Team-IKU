@@ -19,28 +19,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         
         //탭바컨트롤러의 생성
-        let tabBarVC = UITabBarController()
+        let tabBarController = UITabBarController()
+        tabBarController.tabBar.tintColor = .black
         
         //첫번째 화면은 일단
-        let testVC = UINavigationController(rootViewController: UIHostingController<StoryView>(rootView: StoryView()))
-        let historyVC = UINavigationController(rootViewController: HistoryViewController())
-        historyVC.navigationBar.tintColor = .black
-        
-        //탭바 이름들 설정
-        testVC.title = "Strabismus Test"
-        historyVC.title = "Test Record"
+        let storyViewController = UINavigationController(rootViewController: UIHostingController<StoryView>(rootView: StoryView()))
+        storyViewController.navigationBar.tintColor = .black
+        let historyViewController = UINavigationController(rootViewController: HistoryViewController())
+        historyViewController.navigationBar.tintColor = .black
+    
         
         //탭바로 사용하기 위한 뷰 컨트롤러들 설정
-        tabBarVC.setViewControllers([testVC,historyVC], animated: false)
-        tabBarVC.modalPresentationStyle = .fullScreen
-        tabBarVC.tabBar.backgroundColor = .ikuBackgroundBlue
+        tabBarController.setViewControllers([storyViewController,historyViewController], animated: false)
+        tabBarController.modalPresentationStyle = .fullScreen
+        tabBarController.tabBar.backgroundColor = .ikuBackgroundBlue
         
         //탭바 이미지 설정
-        guard let items = tabBarVC.tabBar.items else { return }
-        items[0].image = UIImage(systemName: "magnifyingglass")
-        items[1].image = UIImage(systemName: "calendar")
+        guard let items = tabBarController.tabBar.items else { return }
+        items[0].image = UIImage(named: "StrabismusTestIcon")
+        items[0].title = "Strabismus Test"
+        items[1].image = UIImage(systemName: "list.dash.header.rectangle")
+        items[1].title =  "Test Record"
 
-        window?.rootViewController = tabBarVC
+        window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         
     }
@@ -55,4 +56,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func sceneDidEnterBackground(_ scene: UIScene) {}
 }
-

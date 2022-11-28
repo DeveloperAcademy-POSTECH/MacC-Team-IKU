@@ -33,7 +33,7 @@
 		A8B2A28E291C8B2F000F5624 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8B2A28C291C8B2F000F5624 /* Main.storyboard */; };
 		A8B2A290291C8B30000F5624 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8B2A28F291C8B30000F5624 /* Assets.xcassets */; };
 		A8B2A293291C8B30000F5624 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8B2A291291C8B30000F5624 /* LaunchScreen.storyboard */; };
-		A8B2A2A2291C8D8F000F5624 /* ExtensionPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B2A2A1291C8D8F000F5624 /* ExtensionPlaceholder.swift */; };
+		A8B2A2A2291C8D8F000F5624 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B2A2A1291C8D8F000F5624 /* UINavigationController+Extension.swift */; };
 		A8B2A2A8291C8E3B000F5624 /* ManagerPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B2A2A7291C8E3B000F5624 /* ManagerPlaceholder.swift */; };
 		A8B2A2AB291C8E6A000F5624 /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B2A2AA291C8E6A000F5624 /* Placeholder.swift */; };
 		A8B2A2AD291C8FC8000F5624 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B2A2AC291C8FC8000F5624 /* StoryViewController.swift */; };
@@ -141,7 +141,7 @@
 		A8B2A28F291C8B30000F5624 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8B2A292291C8B30000F5624 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A8B2A294291C8B30000F5624 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A8B2A2A1291C8D8F000F5624 /* ExtensionPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionPlaceholder.swift; sourceTree = "<group>"; };
+		A8B2A2A1291C8D8F000F5624 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		A8B2A2A7291C8E3B000F5624 /* ManagerPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerPlaceholder.swift; sourceTree = "<group>"; };
 		A8B2A2AA291C8E6A000F5624 /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
 		A8B2A2AC291C8FC8000F5624 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
@@ -322,7 +322,7 @@
 		A8B2A2A0291C8D7E000F5624 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				A8B2A2A1291C8D8F000F5624 /* ExtensionPlaceholder.swift */,
+				A8B2A2A1291C8D8F000F5624 /* UINavigationController+Extension.swift */,
 				C7FB09EE292B69B900A7671C /* Double+Extension.swift */,
 				C744915F291D4B4700166197 /* UIFont+Extension.swift */,
 				C74491A2291D4F3000166197 /* UIColor+Extension.swift */,
@@ -591,7 +591,7 @@
 				C74491DA291D54DC00166197 /* CVSelectionType.swift in Sources */,
 				9E16B583292F17C800AFA97D /* Color+Extension.swift in Sources */,
 				C74491CF291D54DC00166197 /* CVRange.swift in Sources */,
-				A8B2A2A2291C8D8F000F5624 /* ExtensionPlaceholder.swift in Sources */,
+				A8B2A2A2291C8D8F000F5624 /* UINavigationController+Extension.swift in Sources */,
 				C74491E8291D54DC00166197 /* CVCalendarManager.swift in Sources */,
 				C7145FC9292B100500F55028 /* PHPhotoManager.swift in Sources */,
 				C74491D7291D54DC00166197 /* CVCalendarView.swift in Sources */,
@@ -844,7 +844,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 78F54XW75V;
+				DEVELOPMENT_TEAM = Z629PZ4XVL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IKU/App/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";

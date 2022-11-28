@@ -139,6 +139,7 @@ final class CoverTestViewController: UIViewController {
         barButtonItem.tintColor = .white
         navigationItem.leftBarButtonItem = barButtonItem
         navigationItem.titleView = distanceLabel
+        navigationController?.navigationBar.scrollEdgeAppearance = nil
     }
     
     private func setupARScene() {

@@ -22,7 +22,7 @@ final class HistoryViewController: UIViewController {
     private var todayStatusLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "우리아이의 사시각 오늘도 검사완료!"
+        label.text = ""
         label.font = .nexonGothicFont(ofSize: 17)
         label.textColor = .black
         label.textAlignment = .center
@@ -53,6 +53,13 @@ final class HistoryViewController: UIViewController {
         let backItem = UIBarButtonItem()
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem
+        
+        let label = UILabel()
+        label.text = "Test Record"
+        label.font = .nexonGothicFont(ofSize: 17, weight: .bold)
+        label.textColor = .black
+        label.textAlignment = .center
+        navigationItem.titleView = label
     }
     
     private func setupCalendarView() {
