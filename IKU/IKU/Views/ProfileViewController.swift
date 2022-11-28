@@ -167,7 +167,7 @@ final class ProfileViewController: UIViewController, UITextFieldDelegate {
         hospital.bottomAnchor.constraint(equalTo: hospitalStackView.bottomAnchor,constant: -10).isActive = true
         
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.topAnchor.constraint(equalTo: view.bottomAnchor,constant: -81).isActive = true
+        button.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -32).isActive = true
         button.heightAnchor.constraint(equalToConstant: 52).isActive = true
         button.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 16).isActive = true
         button.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -16).isActive = true
@@ -175,10 +175,135 @@ final class ProfileViewController: UIViewController, UITextFieldDelegate {
 }
 
 
-struct ProfileView: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> ProfileViewController {
-        ProfileViewController()
-    }
+//struct ProfileView: UIViewControllerRepresentable {
+//    func makeUIViewController(context: Context) -> ProfileViewController {
+//        ProfileViewController()
+//    }
+//
+//    func updateUIViewController(_ uiViewController: ProfileViewController, context: Context) {}
+//}
 
-    func updateUIViewController(_ uiViewController: ProfileViewController, context: Context) {}
+struct ProfileView: View {
+    @State private var nickName: String = "Lisa"
+    @State private var age: Int?
+    @State private var hospital: String = ""
+    var imageURL: URL? = nil
+    
+    var body: some View {
+        VStack(spacing: 16) {
+            Text("Please fill out baby profile")
+                .foregroundColor(.black)
+                .font(Font(UIFont.nexonGothicFont(ofSize: 17)))
+                .padding(.vertical, 32)
+            Button {
+                Void()
+            } label: {
+                if let imageURL {
+                    Text(imageURL.path())
+                } else {
+                    Image("DefaultProfileImage")
+                        .resizable()
+                        .foregroundColor(.white)
+                        .clipShape(Circle())
+                        .frame(width: 120, height: 120)
+                        .overlay {
+                            HStack {
+                                Spacer()
+                                VStack {
+                                    Spacer()
+                                    Circle()
+                                        .frame(width: 40, height: 40)
+                                        .foregroundColor(.gray)
+                                        .overlay {
+                                            Image(systemName: "camera")
+                                                .frame(width: 32, height: 32)
+                                                .foregroundColor(.white)
+                                        }
+                                }
+                            }
+                        }
+                }
+            }
+
+            VStack {
+                HStack {
+                    Text("Nickname")
+                        .foregroundColor(.ikuDarkGray)
+                        .font(Font(UIFont.nexonGothicFont(ofSize: 13)))
+                    Spacer()
+                }
+                TextField("please type nickname", text: $nickName)
+                    .font(Font(UIFont.nexonGothicFont(ofSize: 17)))
+            }
+            .padding(12)
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(.white)
+            )
+            
+            VStack {
+                HStack {
+                    Text("Age")
+                        .foregroundColor(.ikuDarkGray)
+                        .font(Font(UIFont.nexonGothicFont(ofSize: 13)))
+                    Spacer()
+                }
+                TextField(value: $age, format: .number) {
+                    Text("please type age")
+                        .font(Font(UIFont.nexonGothicFont(ofSize: 17)))
+                }
+                .keyboardType(.decimalPad)
+            }
+            .padding(12)
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(.white)
+            )
+            
+            VStack {
+                HStack {
+                    Text("Hospital you go to")
+                        .foregroundColor(.ikuDarkGray)
+                        .font(Font(UIFont.nexonGothicFont(ofSize: 13)))
+                    Spacer()
+                }
+                TextField("please type hospital you go to", text: $hospital)
+                    .font(Font(UIFont.nexonGothicFont(ofSize: 17)))
+            }
+            .padding(12)
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(.white)
+            )
+            
+            Spacer()
+            
+            Button {
+                Void()
+            } label: {
+                HStack {
+                    Spacer()
+                    Text("Save")
+                        .font(Font(UIFont.nexonGothicFont(ofSize: 20, weight: .bold)))
+                        .foregroundColor(.white)
+                    Spacer()
+                }
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 10)
+                        .foregroundColor(Color.ikuBlue)
+                )
+            }
+
+        }
+        .padding()
+        .background(Color.init(uiColor: .ikuBackgroundBlue))
+        .onTapGesture {
+            endEditing()
+        }
+    }
+    
+    private func endEditing() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
 }
